@@ -1,0 +1,856 @@
+/* ==========================================================================
+   RESET & VARIABLES
+   ========================================================================== */
+:root {
+  --bg-color: #F4F3F0; /* Bege claro / cinza quente muito elegante */
+  --text-color: #1A1A1A;
+  --text-light: #555555;
+  --text-lighter: #888888;
+  --accent-blue: #0C4A6E; /* Marine Blue */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Controlado pelo Lenis */
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-blue);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0; /* Edge to edge for Arquea style */
+}
+
+/* Utilitários de Espaçamento */
+.pt-large { padding-top: 15vh; }
+.pb-large { padding-bottom: 15vh; }
+.pt-xl { padding-top: 20vh; }
+.pb-xl { padding-bottom: 20vh; }
+.pb-medium { padding-bottom: 10vh; }
+.mt-small { margin-top: 1rem; }
+.mt-medium { margin-top: 2rem; }
+.mt-large { margin-top: 10vh; }
+.bg-light { background-color: #EBEAE6; }
+.flex-start { justify-content: flex-start !important; }
+
+/* ==========================================================================
+   SPA VIEWS LOGIC
+   ========================================================================== */
+.view-section {
+  display: none;
+  opacity: 0;
+}
+
+.view-section.active {
+  display: block;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   HEADER / NAVBAR
+   ========================================================================== */
+.sobre-img-large {
+  position: sticky;
+  top: 10vh; /* Permite deslizar um pouco para baixo antes de 'sentar' */
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  mix-blend-mode: difference;
+  color: #fff;
+  /* Apenas mix-blend-mode na navbar inteira */
+}
+
+.logo {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav-links a.active-link {
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+/* ==========================================================================
+   HERO SLIDESHOW
+   ========================================================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 8s linear;
+  transform: scale(1.05);
+}
+
+.slide.active {
+  opacity: 0.7;
+  transform: scale(1);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  text-align: center;
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   PAGE HEADER (Páginas Internas)
+   ========================================================================== */
+.page-header {
+  background-color: #EBEAE6;
+}
+
+.page-title {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   PROJETOS (HOME GRID)
+   ========================================================================== */
+.projetos-grid-home {
+  display: flex;
+  flex-direction: column;
+  gap: 15vh;
+}
+
+.projeto-item {
+  width: 100%;
+  max-width: 900px;
+}
+
+.projeto-item.align-right {
+  align-self: flex-end;
+}
+
+.projeto-img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  margin-bottom: 2rem;
+}
+
+.projeto-img-wrapper img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projeto-item:hover .projeto-img-wrapper img {
+  transform: scale(1.03);
+}
+
+.projeto-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.projeto-item:hover .projeto-info {
+  border-color: var(--accent-blue);
+}
+
+.projeto-nome {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: color 0.3s ease;
+}
+
+.projeto-item:hover .projeto-nome {
+  color: var(--accent-blue);
+}
+
+.projeto-categoria {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   ARQUEA GALLERY E PÁGINAS DE PROJETOS
+   ========================================================================== */
+.project-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* Menu lateral menor */
+  gap: 5vw;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.project-content {
+  padding-bottom: 20vh; /* Substitui o padding do layout para segurar o menu sticky */
+}
+
+.project-sidebar {
+  position: sticky;
+  top: 15vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Gap menor */
+}
+
+.project-title {
+  font-size: 1.5rem; /* Fonte menor */
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  line-height: 1.1;
+}
+
+.project-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-nav a {
+  font-size: 0.75rem; /* Fonte menor */
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-lighter);
+  transition: color 0.3s ease;
+}
+
+.project-nav a:hover {
+  color: var(--text-color);
+}
+
+.btn-voltar {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+.btn-voltar:hover {
+  opacity: 1;
+}
+
+.project-hero img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  margin-bottom: 3rem;
+}
+
+.project-metadata {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-lighter);
+}
+
+.meta-value {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.project-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--text-light);
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.arquea-gallery .container-fluid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 linhas/colunas maiores conforme referência */
+  gap: 1.5rem; /* Gap visível e elegante */
+}
+
+.arquea-gallery .container-fluid.collapsed .gallery-item:nth-child(n+5) {
+  display: none; /* Esconde a partir do 5º item (mantém 2 linhas de 2 colunas) */
+}
+
+.btn-ver-tudo {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ver-tudo:hover {
+  opacity: 0.6;
+}
+
+.gallery-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-item:hover .gallery-img img {
+  transform: scale(1.05);
+}
+
+.gallery-meta {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  text-align: center;
+}
+
+.gallery-item:hover .gallery-meta {
+  opacity: 1;
+}
+
+.gallery-meta h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.gallery-meta span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-blue);
+}
+
+/* ==========================================================================
+   BOTÕES E ACTIONS
+   ========================================================================== */
+.action-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 1.2rem 3.5rem;
+  border: 1px solid var(--text-color);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 3rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--text-color);
+  color: #fff;
+  border-color: var(--text-color);
+}
+
+/* ==========================================================================
+   SOBRE (HOME RESUMO)
+   ========================================================================== */
+.sobre-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #EBEAE6;
+  padding: 5vh 0; /* Espaço de segurança */
+}
+
+.sobre-grid-home {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 10vw;
+  align-items: center;
+  width: 100%;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--accent-blue);
+}
+
+.texto-destaque {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-item {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  background-color: var(--bg-color);
+}
+
+.skill-item:hover {
+  background-color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+
+.sobre-img-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Mais ornada e não gigantesca */
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.sobre-img-wrapper img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh; /* Limita a altura para não estourar a tela */
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.sobre-img-wrapper:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   SOBRE (PERFIL COMPLETO SPA VIEW)
+   ========================================================================== */
+.sobre-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 8vw;
+  align-items: flex-start;
+  margin-top: 8vh; /* Afasta o texto e a foto da barra do topo */
+}
+
+.sobre-img-large img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh; /* Evita que a foto estoure o limite vertical da tela */
+  object-fit: contain;
+  filter: grayscale(100%);
+  border-radius: 1rem;
+}
+
+.sobre-info-content {
+  padding-bottom: 20vh; /* Substitui o pb-xl do pai para evitar que a foto pule */
+}
+
+.texto-principal-sobre {
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-color);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem; /* Menos espaçado, mais harmônico */
+}
+
+.detail-block.full-width {
+  grid-column: 1 / -1;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-lighter);
+  margin-bottom: 0.8rem; /* Reduzido para ficar mais junto ao texto */
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 0.5rem;
+}
+
+.detail-list {
+  list-style: none;
+}
+
+.detail-list li {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+  font-weight: 300;
+}
+
+.detail-list.timeline li {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.date-label {
+  font-size: 0.85rem;
+  color: var(--text-lighter);
+  min-width: 100px;
+}
+
+/* ==========================================================================
+   FOOTER GLOBAL
+   ========================================================================== */
+.footer {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  text-align: center;
+}
+
+.footer-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh; /* Compensa visualmente o espaço para a navbar */
+  width: 100%;
+}
+
+.footer-header {
+  text-align: left;
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.footer-title {
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.footer-divider {
+  width: 120px;
+  height: 1px;
+  background-color: #ffffff;
+  border: none;
+  opacity: 0.5;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  text-align: left;
+  width: 100%;
+}
+
+.footer-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.footer-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #38bdf8;
+}
+
+.footer-text {
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+a.footer-text:hover {
+  color: #38bdf8;
+}
+
+.btn-solid {
+  margin-top: 0.5rem;
+  background-color: #ffffff;
+  color: var(--accent-blue);
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.btn-solid:hover {
+  background-color: #38bdf8;
+  color: #ffffff;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+}
+
+/* ==========================================================================
+   RESPONSIVO
+   ========================================================================== */
+@media (max-width: 900px) {
+  .sobre-grid-home, .sobre-details-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .project-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-sidebar {
+    position: static;
+  }
+  
+  .arquea-gallery .container-fluid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular/tablet */
+  }
+
+  .projeto-item.align-right {
+    align-self: flex-start;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-list.timeline li {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+  transform: scale(0.95);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.lightbox.active img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+  color: var(--accent-blue);
+}

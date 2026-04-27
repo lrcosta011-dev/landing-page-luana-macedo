@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luana Macedo | Arquitetura Executiva</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navegação Flutuante Ultra-Minimalista -->
+  <header class="header" id="main-header">
+    <div class="logo"><a href="#" data-view="home">LUANA MACEDO</a></div>
+    <nav class="nav-links">
+      <a href="#" data-view="projetos">Projetos</a>
+      <a href="#" data-view="sobre">Sobre</a>
+      <a href="#" id="nav-contato" data-view="contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="app-container">
+    
+    <!-- ==============================================
+         VIEW: HOME
+         ============================================== -->
+    <div class="view-section active" id="view-home">
+      <!-- Hero Fullscreen Slideshow -->
+      <section class="hero" id="hero">
+        <div class="slideshow-container" id="slideshow">
+          <img src="../portfolio/imagens/residencial D.E 1/Portfólio Residencial 1 - Luana Macedo - (1).png" alt="Residência D.E" class="slide active">
+          <img src="../portfolio/imagens/Auditorio Dois Candangos/Comercial Auditório Dois Candangos (1).png" alt="Auditório" class="slide">
+          <img src="../portfolio/imagens/Espaço Maker/Comercial Espaço Maker (1).png" alt="Espaço Maker" class="slide">
+        </div>
+        <div class="hero-content">
+          <h1 class="hero-title">O rigor por trás da arquitetura.</h1>
+        </div>
+      </section>
+
+      <!-- Projetos (Destaques Home) -->
+      <section class="projetos-section pt-large pb-large">
+        <div class="container">
+          <div class="projetos-grid-home">
+            <article class="projeto-item">
+              <a href="#" data-view="projetos">
+                <div class="projeto-img-wrapper">
+                  <img src="../portfolio/imagens/residencial D.E 1/Portfólio Residencial 1 - Luana Macedo - (1).png" alt="Residência D.E">
+                </div>
+                <div class="projeto-info">
+                  <h2 class="projeto-nome">Residência D.E</h2>
+                  <p class="projeto-categoria">Residencial / Executivo</p>
+                </div>
+              </a>
+            </article>
+
+            <article class="projeto-item align-right mt-offset">
+              <a href="#" data-view="projetos">
+                <div class="projeto-img-wrapper">
+                  <img src="../portfolio/imagens/Auditorio Dois Candangos/Comercial Auditório Dois Candangos (1).png" alt="Auditório Dois Candangos">
+                </div>
+                <div class="projeto-info">
+                  <h2 class="projeto-nome">Auditório Dois Candangos</h2>
+                  <p class="projeto-categoria">Retrofit / Comercial</p>
+                </div>
+              </a>
+            </article>
+          </div>
+          
+          <div class="action-container mt-large">
+            <a href="#" data-view="projetos" class="btn-outline">Todos os Projetos</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre (Resumo Home) -->
+      <section class="sobre-section bg-light">
+        <div class="container sobre-grid-home">
+          <div class="sobre-texto">
+            <h2 class="section-title">Metodologia</h2>
+            <p class="texto-destaque">Meu foco não está apenas no que é visto, mas em como cada detalhe é construído. Codificamos a realidade executável, acompanhando processos desde o modelo BIM até a obra acabada.</p>
+            
+            <div class="skills-list mt-medium">
+              <div class="skill-item">Revit BIM</div>
+              <div class="skill-item">SketchUp Avançado</div>
+              <div class="skill-item">V-Ray Render</div>
+              <div class="skill-item">AutoCAD & Photoshop</div>
+            </div>
+            
+            <div class="action-container flex-start mt-large">
+              <a href="#" data-view="sobre" class="btn-outline">Ver Perfil Completo</a>
+            </div>
+          </div>
+          <div class="sobre-img-wrapper">
+            <img src="../portfolio/imagens/foto de perfil/foto perfil.jpg" alt="Luana Macedo">
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer da Home -->
+      <footer class="footer" id="home-footer">
+        <div class="container footer-layout">
+          
+          <div class="footer-main-content">
+            <div class="footer-header">
+              <h2 class="footer-title">Vamos materializar<br>o seu projeto.</h2>
+              <hr class="footer-divider">
+            </div>
+            
+            <div class="footer-grid">
+              <div class="footer-block">
+                <span class="footer-label">E-mail</span>
+                <a href="mailto:luanamacedo.arqui@gmail.com" class="footer-text">luanamacedo.arqui@gmail.com</a>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Whatsapp</span>
+                <a href="https://wa.me/5561996959145" class="footer-text">(61) 99695-9145</a>
+                <a href="https://wa.me/5561996959145" class="btn-solid">Iniciar Conversa</a>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Localização</span>
+                <span class="footer-text">Brasília — DF</span>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Atendimento</span>
+                <span class="footer-text">Projetos comerciais e residenciais.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <span>© 2026 Luana Macedo</span>
+            <span>Brasília, DF</span>
+          </div>
+          
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- ==============================================
+         VIEW: PROJETOS (Estilo Arquea)
+         ============================================== -->
+    <div class="view-section" id="view-projetos">
+      <section class="page-header pt-xl pb-large">
+        <div class="container">
+          <h1 class="page-title fade-element">Projetos.</h1>
+        </div>
+      </section>
+
+      <!-- Galeria estilo Arquea: Fotos enormes, edge-to-edge container -->
+      <section class="arquea-gallery pb-xl">
+        <div class="container-fluid">
+          
+          <article class="gallery-item fade-element" onclick="window.switchView('projeto-residencial')">
+            <div class="gallery-img">
+              <img src="../portfolio/imagens/residencial D.E 1/Portfólio Residencial 1 - Luana Macedo - (1).png" alt="Residência D.E">
+            </div>
+            <div class="gallery-meta">
+              <h2>Residência D.E</h2>
+              <span>Residencial / Executivo</span>
+            </div>
+          </article>
+
+          <article class="gallery-item fade-element" onclick="window.switchView('projeto-auditorio')">
+            <div class="gallery-img">
+              <img src="../portfolio/imagens/Auditorio Dois Candangos/Comercial Auditório Dois Candangos (1).png" alt="Auditório Dois Candangos">
+            </div>
+            <div class="gallery-meta">
+              <h2>Auditório Dois Candangos</h2>
+              <span>Retrofit / Comercial</span>
+            </div>
+          </article>
+
+          <article class="gallery-item fade-element" onclick="window.switchView('projeto-mesp')">
+            <div class="gallery-img">
+              <img src="../portfolio/imagens/Vestiário MESP/comercial -Vestiário MESP (1).png" alt="Vestiário MESP">
+            </div>
+            <div class="gallery-meta">
+              <h2>Vestiário MESP</h2>
+              <span>Extensão Comercial</span>
+            </div>
+          </article>
+
+          <article class="gallery-item fade-element" onclick="window.switchView('projeto-maker')">
+            <div class="gallery-img">
+              <img src="../portfolio/imagens/Espaço Maker/Comercial Espaço Maker (1).png" alt="Espaço Maker">
+            </div>
+            <div class="gallery-meta">
+              <h2>Espaço Maker UnB</h2>
+              <span>Detalhe de Interiores</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ==============================================
+         VIEW: PROJETO RESIDENCIAL
+         ============================================== -->
+    <div class="view-section" id="view-projeto-residencial">
+      <div class="project-layout container pt-xl pb-large">
+        <aside class="project-sidebar fade-element">
+          <h1 class="project-title">Residência D.E</h1>
+          <nav class="project-nav">
+            <a href="#desc-residencial">Descrição</a>
+            <a href="#galeria-residencial">Galeria</a>
+          </nav>
+          <a href="#" onclick="window.switchView('projetos'); return false;" class="btn-voltar">← Voltar</a>
+        </aside>
+        <main class="project-content fade-element">
+          <div class="project-hero">
+            <img src="../portfolio/imagens/residencial D.E 1/Portfólio Residencial 1 - Luana Macedo - (1).png" alt="Capa Residência D.E">
+          </div>
+          <div id="desc-residencial" class="project-metadata">
+            <div class="meta-item"><span class="meta-label">Local</span><span class="meta-value">Brasília, DF</span></div>
+            <div class="meta-item"><span class="meta-label">Ano</span><span class="meta-value">2024-2026</span></div>
+          </div>
+          <div class="project-description">
+            <p>O presente portfólio contém apenas algumas páginas do material desenvolvido para o Executivo Arquitetônico. Este memorial descritivo sintetiza o projeto executivo de uma residência com 283,21 m² de área construída em um lote de 867,64 m², detalhando minuciosamente dois pavimentos que integram áreas sociais no térreo — como salas de estar e jantar, cozinha, área de lazer com piscina e SPA, e um orquidário exclusivo — a uma zona íntima no pavimento superior composta por sala de TV e suítes. O arquivo estabelece padrões rigorosos de acabamento, especificando revestimentos de marcas como Portobello e Biancogres, sistemas de iluminação com fitas de LED e sancas, além de um detalhamento minucioso de marcenaria em MDF (tonalidades como Louro Freijó e Azul Secreto), bancadas em Silestone Branco e esquadrias de alumínio e vidro, como o guia definitivo para a execução fiel dos elementos estruturais, elétricos, hidrossanitários e de mobiliário planejado.</p>
+          </div>
+          <div id="galeria-residencial" class="arquea-gallery">
+            <div class="container-fluid" id="grid-residencial"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         VIEW: PROJETO AUDITÓRIO
+         ============================================== -->
+    <div class="view-section" id="view-projeto-auditorio">
+      <div class="project-layout container pt-xl pb-large">
+        <aside class="project-sidebar fade-element">
+          <h1 class="project-title">Auditório Dois Candangos</h1>
+          <nav class="project-nav">
+            <a href="#desc-auditorio">Descrição</a>
+            <a href="#galeria-auditorio">Galeria</a>
+          </nav>
+          <a href="#" onclick="window.switchView('projetos'); return false;" class="btn-voltar">← Voltar</a>
+        </aside>
+        <main class="project-content fade-element">
+          <div class="project-hero">
+            <img src="../portfolio/imagens/Auditorio Dois Candangos/Comercial Auditório Dois Candangos (1).png" alt="Capa Auditório Dois Candangos">
+          </div>
+          <div id="desc-auditorio" class="project-metadata">
+            <div class="meta-item"><span class="meta-label">Local</span><span class="meta-value">Campus Darcy Ribeiro — UnB</span></div>
+            <div class="meta-item"><span class="meta-label">Ano</span><span class="meta-value">2024-2026</span></div>
+          </div>
+          <div class="project-description">
+            <p>Projeto de reforma para o Auditório Dois Candangos, localizado no Campus Darcy Ribeiro — UnB. A demanda buscava o restauro de um auditório ícone da universidade que estava desativado por falta de infraestrutura. Foram utilizadas novas técnicas de obra para uma identidade visual moderna mas ainda assim, valorizando o clássico.</p>
+          </div>
+          <div id="galeria-auditorio" class="arquea-gallery">
+            <div class="container-fluid" id="grid-auditorio"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         VIEW: PROJETO MESP
+         ============================================== -->
+    <div class="view-section" id="view-projeto-mesp">
+      <div class="project-layout container pt-xl pb-large">
+        <aside class="project-sidebar fade-element">
+          <h1 class="project-title">Vestiário MESP</h1>
+          <nav class="project-nav">
+            <a href="#desc-mesp">Descrição</a>
+            <a href="#galeria-mesp">Galeria</a>
+          </nav>
+          <a href="#" onclick="window.switchView('projetos'); return false;" class="btn-voltar">← Voltar</a>
+        </aside>
+        <main class="project-content fade-element">
+          <div class="project-hero">
+            <img src="../portfolio/imagens/Vestiário MESP/comercial -Vestiário MESP (1).png" alt="Capa Vestiário MESP">
+          </div>
+          <div id="desc-mesp" class="project-metadata">
+            <div class="meta-item"><span class="meta-label">Local</span><span class="meta-value">Campus FCTE UnB Gama</span></div>
+            <div class="meta-item"><span class="meta-label">Ano</span><span class="meta-value">2024-2026</span></div>
+          </div>
+          <div class="project-description">
+            <p>Projeto de extensão de quadra esportiva, localizado no Campus FCTE UnB Gama. O objetivo era atender à alta demanda de vestiários femininos e masculinos em uma região razoavelmente distante dos sanitários existentes, além da criação de um depósito de materiais esportivos e uma área de administração para funcionários do campus.</p>
+          </div>
+          <div id="galeria-mesp" class="arquea-gallery">
+            <div class="container-fluid" id="grid-mesp"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         VIEW: PROJETO MAKER
+         ============================================== -->
+    <div class="view-section" id="view-projeto-maker">
+      <div class="project-layout container pt-xl pb-large">
+        <aside class="project-sidebar fade-element">
+          <h1 class="project-title">Espaço Maker</h1>
+          <nav class="project-nav">
+            <a href="#desc-maker">Descrição</a>
+            <a href="#galeria-maker">Galeria</a>
+          </nav>
+          <a href="#" onclick="window.switchView('projetos'); return false;" class="btn-voltar">← Voltar</a>
+        </aside>
+        <main class="project-content fade-element">
+          <div class="project-hero">
+            <img src="../portfolio/imagens/Espaço Maker/Comercial Espaço Maker (1).png" alt="Capa Espaço Maker">
+          </div>
+          <div id="desc-maker" class="project-metadata">
+            <div class="meta-item"><span class="meta-label">Local</span><span class="meta-value">ICC Sul, UnB</span></div>
+            <div class="meta-item"><span class="meta-label">Ano</span><span class="meta-value">2024-2026</span></div>
+          </div>
+          <div class="project-description">
+            <p>Projeto de reforma do Laboratório de Física, localizado no ICC Sul, para a demanda de criação de sala de aula integrada com os espaços práticos, com auxílio de novos pontos hidráulicos e elétricos.</p>
+          </div>
+          <div id="galeria-maker" class="arquea-gallery">
+            <div class="container-fluid" id="grid-maker"></div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+
+    <!-- ==============================================
+         VIEW: SOBRE
+         ============================================== -->
+    <div class="view-section" id="view-sobre">
+      <section class="page-header pt-xl pb-medium">
+        <div class="container">
+          <h1 class="page-title fade-element">Perfil.</h1>
+        </div>
+      </section>
+
+      <section class="sobre-details-section">
+        <div class="container sobre-details-grid">
+          <div class="sobre-img-large fade-element">
+            <img src="../portfolio/imagens/foto de perfil/foto perfil.jpg" alt="Luana Macedo">
+          </div>
+
+          <div class="sobre-info-content fade-element">
+            <p class="texto-principal-sobre">
+              Sou uma estudante de Arquitetura e Urbanismo, com previsão de formatura para 2026/2, que busca atuar na área de projetos executivos de arquitetura, contribuindo com as equipes na manutenção da qualidade de projetos e atendimento aos prazos, com interesse especial em edificações. Possuo CNH B, veículo próprio e computador próprio.
+            </p>
+            
+            <div class="details-grid mt-medium">
+              <div class="detail-block">
+                <h3 class="detail-label">Ferramentas</h3>
+                <ul class="detail-list">
+                  <li>SketchUp avançado</li>
+                  <li>V-Ray Render</li>
+                  <li>Render IA</li>
+                  <li>Revit BIM</li>
+                  <li>AutoCAD</li>
+                  <li>Photoshop</li>
+                </ul>
+              </div>
+              
+              <div class="detail-block">
+                <h3 class="detail-label">Atuação</h3>
+                <ul class="detail-list">
+                  <li>Projeto executivo</li>
+                  <li>Interiores</li>
+                  <li>Orçamento</li>
+                  <li>Acompanhamento de obra</li>
+                </ul>
+              </div>
+
+              <div class="detail-block full-width">
+                <h3 class="detail-label">Formação</h3>
+                <ul class="detail-list">
+                  <li>Bacharelado em Arquitetura e Urbanismo</li>
+                  <li class="date-label mt-small">FAU — UnB · 2020 – 2026</li>
+                </ul>
+              </div>
+
+              <div class="detail-block full-width">
+                <h3 class="detail-label">Experiências</h3>
+                <ul class="detail-list timeline">
+                  <li><span class="date-label">2025 – 2026</span> Centro de Planejamento Oscar Niemeyer</li>
+                  <li><span class="date-label">2025</span> Controladoria Geral da União</li>
+                  <li><span class="date-label">2022 – 2024</span> C12 Construtora</li>
+                  <li><span class="date-label">2021</span> Ministério da Economia</li>
+                </ul>
+              </div>
+
+              <div class="detail-block full-width">
+                <h3 class="detail-label">Idiomas</h3>
+                <ul class="detail-list">
+                  <li>Português · Inglês</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- View: Contato -->
+    <section id="view-contato" class="view-section" style="display: none;">
+      <footer class="footer" style="height: 100vh; overflow: hidden;">
+        <div class="container footer-layout">
+          
+          <div class="footer-main-content">
+            <div class="footer-header">
+              <h2 class="footer-title">Vamos materializar<br>o seu projeto.</h2>
+              <hr class="footer-divider">
+            </div>
+            
+            <div class="footer-grid">
+              <div class="footer-block">
+                <span class="footer-label">E-mail</span>
+                <a href="mailto:luanamacedo.arqui@gmail.com" class="footer-text">luanamacedo.arqui@gmail.com</a>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Whatsapp</span>
+                <a href="https://wa.me/5561996959145" class="footer-text">(61) 99695-9145</a>
+                <a href="https://wa.me/5561996959145" class="btn-solid">Iniciar Conversa</a>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Localização</span>
+                <span class="footer-text">Brasília — DF</span>
+              </div>
+              <div class="footer-block">
+                <span class="footer-label">Atendimento</span>
+                <span class="footer-text">Projetos comerciais e residenciais.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <span>© 2026 Luana Macedo</span>
+            <span>Brasília, DF</span>
+          </div>
+          
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- Lightbox Simples para Projetos -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script src="script.js"></script>
+</body>
+</html>
